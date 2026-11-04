@@ -9,6 +9,7 @@ $DB_HOST = getenv('MYSQLHOST') ?: getenv('DB_HOST') ?: 'localhost';
 $DB_NAME = getenv('MYSQLDATABASE') ?: getenv('DB_NAME') ?: 'code_review_platform';
 $DB_USER = getenv('MYSQLUSER') ?: getenv('DB_USER') ?: 'root';
 $DB_PASS = getenv('MYSQLPASSWORD') ?: getenv('DB_PASS') ?: '';
+$DB_PORT = (int)(getenv('MYSQLPORT') ?: getenv('DB_PORT') ?: 3306);
 
 const MAX_FILE_SIZE = 5 * 1024 * 1024; // 5 MB per file
 const MAX_FILES = 10;
