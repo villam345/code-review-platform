@@ -13,4 +13,13 @@ session_regenerate_id(true);
 $_SESSION['user_id'] = (int)$user['id'];
 $_SESSION['role'] = $user['role'];
 $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
-json_response(['success'=>true,'user'=>['id'=>(int)$user['id'],'name'=>$user['name'],'email'=>$user['email'],'role'=>$user['role']],'csrf_token'=>$_SESSION['csrf_token']]);
+json_response([
+    'success' => true,
+    'user' => [
+        'id' => (int)$user['id'],
+        'name' => $user['name'],
+        'email' => $user['email'],
+        'role' => $user['role'],
+    ],
+    'csrf_token' => $_SESSION['csrf_token'],
+]);
