@@ -2,14 +2,13 @@
 declare(strict_types=1);
 
 /*
- * LOCAL XAMPP DEFAULTS.
- * Replace these values with the database details from your hosting provider
- * before deployment. Never put database credentials in frontend JavaScript.
+ * Supports both local XAMPP defaults and Railway's managed MySQL variables.
+ * Never expose these credentials in frontend JavaScript.
  */
-const DB_HOST = 'localhost';
-const DB_NAME = 'code_review_platform';
-const DB_USER = 'root';
-const DB_PASS = '';
+$DB_HOST = getenv('MYSQLHOST') ?: getenv('DB_HOST') ?: 'localhost';
+$DB_NAME = getenv('MYSQLDATABASE') ?: getenv('DB_NAME') ?: 'code_review_platform';
+$DB_USER = getenv('MYSQLUSER') ?: getenv('DB_USER') ?: 'root';
+$DB_PASS = getenv('MYSQLPASSWORD') ?: getenv('DB_PASS') ?: '';
 
 const MAX_FILE_SIZE = 5 * 1024 * 1024; // 5 MB per file
 const MAX_FILES = 10;
